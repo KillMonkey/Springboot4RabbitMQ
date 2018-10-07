@@ -19,7 +19,7 @@ import com.rabbit.Springboot4RabbitMQ.entity.Order;
  * @version: v1.0
  */
 
-public class FastJsonConvertUtil
+public class FastJsonConvertUtil<T>
 {
 
     /**
@@ -49,6 +49,11 @@ public class FastJsonConvertUtil
     {
         JSONObject json = JSONObject.parseObject(message);
         return json.toJavaObject(class1);
+    }
+
+    public static JSONObject toJsonObject(Object javaBean)
+    {
+        return JSONObject.parseObject(JSONObject.toJSON(javaBean).toString());
     }
 
 }

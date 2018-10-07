@@ -58,4 +58,10 @@ public class Order implements Serializable
         this.messageId = messageId == null ? null : messageId.trim();
     }
 
+    @Override
+    public String toString()
+    {
+        return "Order [id=" + id + ", name=" + name + ", messageId=" + messageId + "]";
+    }
+
 }

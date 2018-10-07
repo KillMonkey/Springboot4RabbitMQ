@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import com.rabbit.Springboot4RabbitMQ.constant.Constants;
 import com.rabbit.Springboot4RabbitMQ.entity.Order;
 import com.rabbit.Springboot4RabbitMQ.mapper.BrokerMessageLogMapper;
+import com.rabbit.Springboot4RabbitMQ.utils.FastJsonConvertUtil;
 
 
 /**
@@ -66,6 +67,6 @@ public class RabbitOrderSender
         rabbitTemplate.setConfirmCallback(confirmCallback);
         // 消息唯一ID
         CorrelationData correlationData = new CorrelationData(order.getMessageId());
-        rabbitTemplate.convertAndSend("order-exchange", "order.ABC", order, correlationData);
+        rabbitTemplate.convertAndSend("order-exchange", "order.ABC", FastJsonConvertUtil.toJsonObject(order), correlationData);
     }
 }
