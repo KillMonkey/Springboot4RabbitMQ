@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>才华有限公司</title>
+    <style>
+        body {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #welcome {
+            text-align: center;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="welcome">
+    <h3>欢迎使用 <span th:text="${project}"></span> -By <span th:text=" ${author}"></span></h3>
+    <span th:text="${url}"></span>
+    <div style="text-align: center; padding: 10px">
+        <a style="text-decoration: none;" href="#" th:href="@{${url}}" target="_bank">
+            <strong>来自晓哥的邮件</strong>
+        </a>
+    </div>
+    <div style="text-align: center; padding: 4px">
+        如果对你有帮助,请给我打电话
+    </div>
+    <img width="180px" height="180px"
+         src="https://oscimg.oschina.net/oscnet/27f32cd8b2a581135d11acbf7e14b5f6739.jpg">
+</div>
+</body>
+</html>

@@ -69,4 +69,5 @@ public class RabbitOrderSender
         CorrelationData correlationData = new CorrelationData(order.getMessageId());
         rabbitTemplate.convertAndSend("order-exchange", "order.ABC", FastJsonConvertUtil.toJsonObject(order), correlationData);
     }
+
 }
