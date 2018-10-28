@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <!--添加一个控制台追加器-->
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout>
+                <pattern>[%-5p] %d %c - %m%n</pattern>
+            </PatternLayout>
+        </Console>
+        <!--添加一个文本追加器，文件位于根目录下，名为log.log-->
+        <File name="systemLog" fileName="F:\redis\log\SpringBootSystem.log">
+            <PatternLayout>
+                <pattern>[%-5p] %d %c - %m%n</pattern>
+            </PatternLayout>
+        </File>
+        <File name="bussinessLog" fileName="F:\redis\log\SpringBootLog4j2.log">
+            <PatternLayout>
+                <pattern>[%-5p] %d %c - %m%n</pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+        </Root>
+      	<Logger name="org.springframework" level="info" additivity="false">  
+            <AppenderRef ref="systemLog" />
+        </Logger>
+        <Logger name="com.springboot.log4j2.SpringBootLog4j2" level="info" additivity="true">  
+            <AppenderRef ref="bussinessLog" />
+        </Logger>
+    </Loggers>
+</Configuration>
